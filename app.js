@@ -1,5 +1,10 @@
-const express = require('express');
+const express = require("express");
+const morgan = require("morgan");
+const booksRouter = require("./src/routes/booksRoutes");
 
 const app = express();
 
-module.exports = app
+app.use("/api/books", booksRouter);
+app.use(morgan("dev"));
+
+module.exports = app;
